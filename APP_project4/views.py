@@ -4,7 +4,7 @@ import requests
 
 
 def index(request):
-    r = requests.get('http://api.mediastack.com/v1/news?access_key=9736ce03a738243b550151174c7a437f&countries=gb&categories=technology')  # noqa: E501
+    r = requests.get('http://api.mediastack.com/v1/news?access_key=46f5af82baae677bfc2c20387c07fcb2&countries=gb&categories=technology')  # noqa: E501
     res = r.json()
     print(res)
     data = res['data']
@@ -22,7 +22,7 @@ def index(request):
 
 
 def news1(request):
-    r = requests.get('http://api.mediastack.com/v1/news?access_key=9736ce03a738243b550151174c7a437f&countries=gb&categories=sports')  # noqa: E501
+    r = requests.get('http://api.mediastack.com/v1/news?access_key=46f5af82baae677bfc2c20387c07fcb2&countries=gb&categories=sports')  # noqa: E501
     res = r.json()
     print(res)
     data = res['data']
@@ -40,7 +40,7 @@ def news1(request):
 
 
 def news2(request):
-    r = requests.get('http://api.mediastack.com/v1/news?access_key=9736ce03a738243b550151174c7a437f&countries=gb&categories=science')  # noqa: E501
+    r = requests.get('http://api.mediastack.com/v1/news?access_key=46f5af82baae677bfc2c20387c07fcb2&countries=gb&categories=science')  # noqa: E501
     res = r.json()
     print(res)
     data = res['data']
