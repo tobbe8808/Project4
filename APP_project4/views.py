@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post, Like
 import requests
 # Create your views here.
 
@@ -56,3 +57,40 @@ def news2(request):
     news = zip(title, description, image, url)
     return render(request, 'APP_project4/news2.html', {'news': news})
 
+def post_view(request):
+    qs = Post.objects.all()
+    user = request.user
+
+    context = {
+        'qs': qs,
+        'user': user,
+    }
+
+    return render(request, 'app_project4/main.html', context)
+
+
+def like_post(request):
+    user = request.user
+    if request.metod == 'POST':
+        post_id = request.POST.get('post_id')
+        post_obj = Post.objects.get(id=post_id)
+
+        if user in post_obj.linked.all():
+            post_obj.liked.remove(user)
+        else:
+            post_obj.liked.add(user)
+
+        like, created = Like.objects.get-or_create(user=user, post_id=post_id)
+
+        if not created:
+            if like.value == 'Like':
+                like.value = 'Unlike'
+            else:
+                like.value = 'Like'
+
+        like.save()
+    return redirect('post:post-list')
+
+
+
+    return redirect('post:post-list')
